@@ -1,0 +1,43 @@
+html, body, .container {
+    height: 100%;
+}
+.btn-register{
+    position: fixed;
+    z-index: 50;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 12vh;
+}
+  #meer>div>div{
+      width: 100%;
+  }
+.themeColor{
+    background-color: #c62828;
+}
+/* profiel pagina */
+nav#profileHeader{
+    height: 30vh;
+}
+#profilePosition{
+    position: fixed;
+    top: 15vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+#avatarPosition img.profileAvatar{
+    height: 25vh;
+    background-color: purple;
+    border: solid black 5px;
+}
+#profileData{
+    margin-top: 15vh;
+    width: 100%;
+    text-align: center;
+}
+
+div.profileName{
+    font-weight: bold;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+}

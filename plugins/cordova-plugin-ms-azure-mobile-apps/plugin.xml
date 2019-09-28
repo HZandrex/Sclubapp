@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (c) Microsoft Open Technologies, Inc.  All Rights Reserved.
+ Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
+-->
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+           id="cordova-plugin-ms-azure-mobile-apps"
+      version="2.0.1">
+    <name>Azure Mobile Apps</name>
+    <description>This library enables you to develop scalable and secure cordova mobile apps hosted in Microsoft Azure. You can incorporate structured storage, user authentication and push notifications in minutes. For more information, check out http://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop-preview</description>
+    <license>Apache 2.0</license>
+    <keywords>azure, services, zumo, cloud</keywords>
+    <repo>https://github.com/azure/azure-mobile-apps-cordova-client</repo>
+    <issue>https://github.com/azure/azure-mobile-apps-js-client/issues</issue>
+
+    <dependency id="cordova-plugin-inappbrowser@1.5.0"/>
+    <dependency id="cordova-sqlite-storage@2.2.0"/>
+
+    <platform name="windows8">
+        <js-module src="www/MobileServices.Cordova.Ext.js" name="AzureMobileServices.Ext">
+            <runs />
+        </js-module>
+        <js-module src="www/MobileServices.Cordova.js" name="AzureMobileServices">
+            <clobbers target="WindowsAzure" />
+        </js-module>
+    </platform>
+
+    <platform name="windows">
+        <js-module src="www/MobileServices.Cordova.Ext.js" name="AzureMobileServices.Ext">
+            <runs />
+        </js-module>
+        <js-module src="www/MobileServices.Cordova.js" name="AzureMobileServices">
+            <clobbers target="WindowsAzure" />
+        </js-module>
+    </platform>
+
+    <platform name="wp8">
+        <js-module src="www/MobileServices.Cordova.Ext.js" name="AzureMobileServices.Ext">
+            <runs />
+        </js-module>
+        <js-module src="www/MobileServices.Cordova.js" name="AzureMobileServices">
+            <clobbers target="WindowsAzure" />
+        </js-module>
+    </platform>
+
+    <platform name="ios">
+        <framework src="src/ios/MicrosoftAzureMobile.framework" custom="true"/>
+
+        <!-- Frameworks MicrosoftAzureMobile depends on -->
+        <framework src="WebKit.framework"/>
+        <framework src="SafariServices.framework"/>
+        <framework src="CoreData.framework"/>
+
+        <header-file src="src/ios/MobileServicesPlugin.h" />
+        <source-file src="src/ios/MobileServicesPlugin.m" />
+
+        <source-file src="src/ios/AppDelegate+MobileServicesPlugin.m"/>
+	    <header-file src="src/ios/AppDelegate+MobileServicesPlugin.h"/>
+
+        <!-- appname for deep-link  -->
+        <config-file target="*-Info.plist" parent="AzureMobileAppsRedirectUriScheme">
+            <string>appname</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleURLName</key>
+                    <string>com.microsoft.azure.zumo</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>appname</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="MobileServices">
+                <param name="ios-package" value="MobileServicesPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <js-module src="www/MobileServices.Cordova.Ext.js" name="AzureMobileServices.Ext">
+            <runs />
+        </js-module>
+        <js-module src="www/MobileServices.Cordova.js" name="AzureMobileServices">
+            <clobbers target="WindowsAzure" />
+        </js-module>
+    </platform>
+
+    <platform name="android">
+        <framework src="com.microsoft.azure:azure-mobile-android:3.3.0"/>
+
+        <source-file src="src/android/MobileServices.java"
+                     target-dir="src/com/microsoft/windowsazure/mobileservices/cordova" />
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="MobileServices">
+                <param name="android-package" value="com.microsoft.windowsazure.mobileservices.cordova.MobileServices" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>  
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data android:name=".azure_mobileapps_redirect_uri_scheme" android:value="${redirectUriScheme}" />
+            <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.BROWSABLE" />
+                    <data android:host="easyauth.callback" android:scheme="${redirectUriScheme}" />
+                </intent-filter>
+            </activity>
+            <activity android:exported="false" android:name="com.microsoft.windowsazure.mobileservices.authentication.CustomTabsIntermediateActivity" />
+            <activity android:exported="false" android:launchMode="singleTask" android:name="com.microsoft.windowsazure.mobileservices.authentication.CustomTabsLoginActivity" />
+        </config-file> 
+
+        <js-module src="www/MobileServices.Cordova.Ext.js" name="AzureMobileServices.Ext">
+            <runs />
+        </js-module>
+        <js-module src="www/MobileServices.Cordova.js" name="AzureMobileServices">
+            <clobbers target="WindowsAzure" />
+        </js-module>
+    </platform>
+
+    <platform name="browser">
+        <js-module src="www/MobileServices.Cordova.Ext.js" name="AzureMobileServices.Ext">
+            <runs />
+        </js-module>
+        <js-module src="www/MobileServices.Cordova.js" name="AzureMobileServices">
+            <clobbers target="WindowsAzure" />
+        </js-module>
+    </platform>
+</plugin>

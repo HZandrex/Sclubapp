@@ -1,0 +1,4 @@
+#Sun Apr 01 23:33:42 CEST 2018
+base.0=Z\:\\School\\Cordova\\Opdracht\\Sclubapp\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0
+renamed.0=classes.dex
+file.0=Z\:\\School\\Cordova\\Opdracht\\Sclubapp\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0\\classes.dex

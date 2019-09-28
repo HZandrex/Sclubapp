@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    
+    <script src="./js/jquery-3.3.1.min.js"></script>
+
+    <!-- Materializecss toevoegen -->
+    <link href="./css/materialize.min.css" rel="stylesheet" />
+    <script src="./js/materialize.min.js"></script>
+
+    <link href="./css/template.css" rel="stylesheet" />
+    <link rel = "stylesheet" href = "css/schema.css">
+
+    <title>Sclubapp</title>
+</head>
+
+<body>
+    <!-- HTML is my templating engine -->
+    <!-- and CSS is my router -->
+    <div class="app" id="templateManager">
+    </div>
+    <template id="onStartUp">
+    </template>
+    <template id="profile">
+        <div class="page">
+            <div>
+                <!--return-menu-->
+                <nav id="profileHeader" class="purple themeColor">
+                        <a class="left btn-back"><img src="assets/icon/ic_arrow_back_white_24px.svg" alt="Zoeken"/></a>
+                        <a class="right disabled"><img src="assets/icon/ic_mode_edit_white_24px.svg" id="avatar" alt="Mijn Account"/></a>
+                        <div class="white-text profileName center-align">Naam placholder</div>
+                </nav>
+                <div id="profilePosition">
+                    <div id="avatarPosition">
+                        <img src="assets/icon/ic_person_white_24px.svg" class="profileAvatar" alt="Profielfoto placholder"/>
+                    </div>
+                </div>
+                
+                <!-- profiel gegevens-->
+                <div id="profileData">
+                    <p><strong>Email:</strong> <br /><span class="profileEmail">E-mail placholder</span></p>
+                    <p><strong>Leeftijd:</strong><br /><span class="profileYearOfBirth">Geboortejaar placholder</span></p>
+                    <p><strong>Tel/gsm:</strong><br /><a class="profilePhoneNumber">Telefoon placholder</a></p>
+                    <p><strong>Tags:</strong><br /><span><div class="chip tag">Tag placholder</i></div></span></p>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="home">
+        <!--Navigatie menu -->
+        <nav id="main-menu" class="nav-extended purple themeColor">
+            <div class="nav-wrapper">
+                <div class="brand-logo left groupTitle">Titel placholder</div>
+                <div class="brand-logo right">
+                    <!-- zoeken -->
+                    <a><img src="assets/icon/ic_search_white_24px.svg" alt="Zoeken"/></a>
+                    <a></a>
+
+                    <!-- Profiel menu-->
+                    <a class='profielMenu' href='#' data-activates='profileDropdown'><img class="profileAvatar" src="assets/icon/ic_person_white_24px.svg" width="24" height="24" id="avatar" alt="Mijn Account"/><img src="assets/icon/ic_arrow_drop_down_white_24px.svg" alt="dropdown"/></a>
+
+                    <ul id='profileDropdown' class='dropdown-content'>
+                        <!--zie templateManager-->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tab menu -->
+            <div class="nav-content">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab" id="tabNiews"><a class="active" href="#nieuws">nieuws</a></li>
+                    <li class="tab disabled" id="tabChat"><a href="#chat">chat</a></li>
+                    <li class="tab" id="tabSchema"><a href="#schema">schema</a></li>
+                    <li class="tab" id="tabMeer"><a href="#meer">meer</a></li>
+                </ul>
+            </div>
+        </nav>	 
+        <!--Nieuws-->
+        <div id = "nieuws">
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                        <img src="./assets/img/leden/avt-portret22-orig.jpg" alt="" class="circle">
+                        <span class="title">Eversel loopje</span>
+                        <p>22/04/18<br>
+                            16:00 - 17:00
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">details</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                            <img src="./assets/img/leden/avt-portret31_1.jpg" alt="" class="circle">
+                        <span class="title">Helchteren duurloop</span>
+                        <p>7/04/18<br>
+                            18:00 - 20:00
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">details</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                            <img src="./assets/img/leden/avt-portret29_1.jpg" alt="" class="circle">
+                        <span class="title">Mosseldag</span>
+                        <p>27/03/18<br>
+                            15:00 - 21:00
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">details</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                            <img src="./assets/img/leden/avt-portret5_1.jpg" alt="" class="circle">
+                        <span class="title">Training verandering</span>
+                        <p>24/3/18<br>
+                            -
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">details</i></a>
+                    </li>
+                    </ul>
+        </div>
+
+        <!--Chat-->
+        <div id = "chat">
+            Chat api
+        </div>
+
+        <!--Schema-->
+        <div id = "schema">
+            <div class="wrapper">
+                    <div class="toolbar">
+                    <div class="toggle">
+                        <div class="toggle__option">week</div>
+                        <div class="toggle__option toggle__option--selected">maand</div>
+                    </div>
+                    <div class="current-month">juni 2018</div>
+                    </div>
+                    <div class="calendar">
+                    <div class="calendar__header">
+                        <div>ma</div>
+                        <div>di</div>
+                        <div>woe</div>
+                        <div>do</div>
+                        <div>vrij</div>
+                        <div>za</div>
+                        <div>zo</div>
+                    </div>
+                    <div class="calendar__week">
+                        <div class="calendar__day day">1</div>
+                        <div class="calendar__day day">2</div>
+                        <div class="calendar__day day">3</div>
+                        <div class="calendar__day day">4</div>
+                        <div class="calendar__day day">5</div>
+                        <div class="calendar__day day">6</div>
+                        <div class="calendar__day day">7</div>
+                    </div>
+                    <div class="calendar__week">
+                        <div class="calendar__day day">8</div>
+                        <div class="calendar__day day">9</div>
+                        <div class="calendar__day day">10</div>
+                        <div class="calendar__day day">11</div>
+                        <div class="calendar__day day">12</div>
+                        <div class="calendar__day day">13</div>
+                        <div class="calendar__day day">14</div>        
+                    </div>
+                    <div class="calendar__week">
+                        <div class="calendar__day day">15</div>
+                        <div class="calendar__day day">16</div>
+                        <div class="calendar__day day">17</div>
+                        <div class="calendar__day day">18</div>
+                        <div class="calendar__day day">19</div>
+                        <div class="calendar__day day">20</div>
+                        <div class="calendar__day day">21</div>    
+                    </div>
+                    <div class="calendar__week">
+                        <div class="calendar__day day">22</div>
+                        <div class="calendar__day day">23</div>
+                        <div class="calendar__day day">24</div>
+                        <div class="calendar__day day">25</div>
+                        <div class="calendar__day day">26</div> 
+                        <div class="calendar__day day">27</div> 
+                        <div class="calendar__day day">28</div> 
+                    </div>
+                    <div class="calendar__week">
+                        <div class="calendar__day day">29</div>
+                        <div class="calendar__day day">30</div>
+                        <div class="calendar__day day">31</div>
+                        <div class="calendar__day day">1</div>
+                        <div class="calendar__day day">2</div>
+                        <div class="calendar__day day">3</div>
+                        <div class="calendar__day day">4</div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+
+        <!--Meer-->
+        <div id = "meer">
+                <div class="card red lighten-1">
+                    <div class="card-content white-text waves-effect">
+                        <span class="card-title">Leden</span>
+                    </div>
+                </div>
+                <div class="card red lighten-1">
+                    <div class="card-content white-text waves-effect">
+                        <span class="card-title">Events</span>
+                    </div>
+                </div>
+                <div class="card red lighten-1">
+                    <div class="card-content white-text waves-effect">
+                        <span class="card-title">Kaart</span>
+                    </div>
+                </div>
+                <div class="card red lighten-1">
+                    <div class="card-content white-text waves-effect">
+                        <span class="card-title">Catalogus</span>
+                    </div>
+                </div>
+                <div class="card red lighten-1">
+                    <div class="card-content white-text waves-effect">
+                        <span class="card-title">Info</span>
+                    </div>
+                </div>
+        </div>
+    </template>
+    <template id="register">
+        <div class="page">
+                <button class="btn-register btn waves-effect deep-purple lighten-1">Registreer</button>
+                <div class="slider fullscreen">
+                    <ul class="slides">
+                        <li class="purple">
+                        <img src="./assets/gif/firstRun/Sclubapp-icon.gif"> <!-- random image -->
+                        <div class="caption center-align">
+                            <h3>Welkom</h3>
+                            <h5 class="light grey-text text-lighten-3">Eerste gebruik?</h5>
+                        </div>
+                        </li>
+                        <li class="red">
+                        <img src="./assets/img/firstRun/Sclubapp-News.png"> <!-- random image -->
+                        <div class="caption left-align">
+                            <h3>Nieuws</h3>
+                            <h5 class="light grey-text text-lighten-3">Blijf altijd op de hoogte!</h5>
+                        </div>
+                        </li>
+                        <li class="blue">
+                        <img src="./assets/img/firstRun/Sclubapp-Network.png"> <!-- random image -->
+                        <div class="caption right-align">
+                            <h3>Chat</h3>
+                            <h5 class="light grey-text text-lighten-3">Bereik iedereen</h5>
+                        </div>
+                        </li>
+                        <li class="green">
+                        <img src="./assets/img/firstRun/Sclubapp-Schedule.png"> <!-- random image -->
+                        <div class="caption center-align">
+                            <h3>Schema</h3>
+                            <h5 class="light grey-text text-lighten-3">Bekijkbaar offline als online!</h5>
+                        </div>
+                        </li>
+                        <li class="orange">
+                        <img src="./assets/img/firstRun/Sclubapp-Register.png"> <!-- random image -->
+                        <div class="caption center-align">
+                            <h3>Registreer</h3>
+                            
+                        </div>
+                        </li>
+                    </ul>
+                    </div>
+        </div>
+    </template>
+</div>
+    <script src="cordova.js"></script>
+    <script src="./js/bundle.js"></script>
+</body>
+
+</html>
