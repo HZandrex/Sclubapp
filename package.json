@@ -21,7 +21,7 @@
         "cordova-plugin-safariviewcontroller": "^1.5.3",
         "cordova-plugin-whitelist": "^1.3.3",
         "cordova-sqlite-storage": "^2.2.0",
-        "lodash": "^4.17.5",
+        "lodash": "^4.17.21",
         "cordova-plugin-ms-azure-mobile-apps": "^2.0.1"
     },
     "cordova": {
